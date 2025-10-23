@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Te Peguei! 🎉</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff9a56 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Pequis dançantes de fundo */
+        body::before {
+            content: '🥭';
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            font-size: 3rem;
+            animation: dance 4s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        body::after {
+            content: '🥭';
+            position: absolute;
+            top: 15%;
+            right: 10%;
+            font-size: 2.5rem;
+            animation: dance 6s ease-in-out infinite reverse;
+            opacity: 0.6;
+        }
+
+        @keyframes dance {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-30px) rotate(10deg) scale(1.1); }
+            50% { transform: translateY(-15px) rotate(-5deg) scale(0.9); }
+            75% { transform: translateY(-25px) rotate(15deg) scale(1.05); }
+        }
+
+        .container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            border: 3px solid rgba(255, 107, 53, 0.3);
+            animation: containerBounce 2s ease-in-out;
+        }
+
+        @keyframes containerBounce {
+            0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .celebration-icon {
+            font-size: 5rem;
+            margin-bottom: 25px;
+            animation: celebrate 1.5s ease-in-out infinite;
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.3) rotate(-10deg); }
+            50% { transform: scale(1.1) rotate(10deg); }
+            75% { transform: scale(1.2) rotate(-5deg); }
+        }
+
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #ff6b35;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); }
+            100% { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 107, 53, 0.5); }
+        }
+
+        .message {
+            font-size: 1.4rem;
+            color: #495057;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .pequi-facts {
+            background: linear-gradient(45deg, #fff3e0, #ffe0b2);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px solid #ff6b35;
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.1);
+        }
+
+        .pequi-facts h3 {
+            color: #ff6b35;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .pequi-facts p {
+            color: #5d4037;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b35;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .pequi-emoji {
+            font-size: 2rem;
+            margin: 0 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Estilos da Charada */
+        .riddle-section {
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px solid #ff6b35;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .riddle-section h3 {
+            color: #ff6b35;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .riddle-question {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .riddle-question p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ffffff;
+            font-style: italic;
+        }
+
+        .riddle-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            padding: 15px 20px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .option-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .option-btn.correct {
+            background: linear-gradient(45deg, #4caf50, #45a049);
+        }
+
+        .option-btn.wrong {
+            background: linear-gradient(45deg, #f44336, #d32f2f);
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .riddle-feedback {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            min-height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Estilos do Convite do Cinema */
+        .cinema-invite {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.3);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .cinema-invite h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .popcorn-animation {
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .invite-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .invite-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .cinema-details {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .detail-item .icon {
+            font-size: 1.3rem;
+            margin-right: 15px;
+            width: 30px;
+        }
+
+        .invite-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .accept-btn, .maybe-btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .accept-btn {
+            background: linear-gradient(45deg, #4caf50, #45a049);
+            color: white;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .accept-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        .maybe-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .maybe-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+            
+            .celebration-icon {
+                font-size: 4rem;
+            }
+
+            .riddle-options {
+                grid-template-columns: 1fr;
+            }
+
+            .invite-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .accept-btn, .maybe-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="celebration-icon">🎉</div>
+        <h1 class="title">TE PEGUEI! 🥭</h1>
+        <p class="message">
+            Hahaha! Você caiu na minha pegadinha! 😂<br>
+            Agora eu sei que você gosta de pequi! <span class="pequi-emoji">🥭</span>
+        </p>
+        
+        <div class="pequi-facts">
+            <h3>🥭 Curiosidades sobre o Pequi:</h3>
+            <p>
+                O pequi é uma fruta típica do Cerrado brasileiro! 
+                É rico em vitamina A e tem um sabor único e marcante. 
+                Muitas pessoas acham que tem gosto de "sabão" na primeira vez, 
+                mas depois se apaixonam! 😄
+            </p>
+        </div>
+
+        <!-- Seção da Charada -->
+        <div class="riddle-section">
+            <h3>🎬 Charada do Cinema! 🍿</h3>
+            <div class="riddle-question">
+                <p>Eu sou um lugar mágico onde as histórias ganham vida,<br>
+                Com telas gigantes e pipoca quentinha.<br>
+                Em Uberlândia, sou o destino da diversão,<br>
+                Qual é o meu nome? Dê sua opinião!</p>
+            </div>
+            
+            <div class="riddle-options">
+                <button class="option-btn" onclick="checkAnswer(this, false)">🏪 Shopping</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">🎪 Parque</button>
+                <button class="option-btn correct" onclick="checkAnswer(this, true)">🎬 Cinemark</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">🍕 Restaurante</button>
+            </div>
+            
+            <div class="riddle-feedback" id="feedback"></div>
+        </div>
+
+        <!-- Convite para o Cinema -->
+        <div class="cinema-invite" id="cinemaInvite" style="display: none;">
+            <h3>🎉 Parabéns! Você acertou! 🎉</h3>
+            <div class="invite-content">
+                <div class="popcorn-animation">🍿</div>
+                <h4>Que tal assistirmos um filme juntos?</h4>
+                <p>Vamos ao <strong>Cinemark Uberlândia</strong> para uma sessão especial!</p>
+                
+                <div class="cinema-details">
+                    <div class="detail-item">
+                        <span class="icon">📍</span>
+                        <span>Cinemark Uberlândia Shopping</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">🎬</span>
+                        <span>Filme à sua escolha</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">🍿</span>
+                        <span>Pipoca e refrigerante inclusos</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">💕</span>
+                        <span>Momentos especiais garantidos</span>
+                    </div>
+                </div>
+                
+                <div class="invite-buttons">
+                    <button class="accept-btn" onclick="acceptInvite()">🎬 Aceitar Convite!</button>
+                    <button class="maybe-btn" onclick="maybeLater()">🤔 Talvez depois</button>
+                </div>
+            </div>
+        </div>
+
+        <a href="html.html" class="back-button">🔄 Voltar para a pergunta</a>
+    </div>
+
+    <script>
+        // Cria confetes animados
+        function createConfetti() {
+            const colors = ['#ff6b35', '#f7931e', '#ff9a56', '#ffb74d', '#ffcc02'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }, i * 100);
+            }
+        }
+
+        // Adiciona mais pequis flutuantes
+        function addFloatingPequis() {
+            for (let i = 0; i < 5; i++) {
+                const pequi = document.createElement('div');
+                pequi.innerHTML = '🥭';
+                pequi.style.position = 'absolute';
+                pequi.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+                pequi.style.left = Math.random() * 100 + 'vw';
+                pequi.style.top = Math.random() * 100 + 'vh';
+                pequi.style.opacity = '0.3';
+                pequi.style.animation = `float ${Math.random() * 4 + 3}s ease-in-out infinite`;
+                pequi.style.animationDelay = Math.random() * 2 + 's';
+                pequi.style.pointerEvents = 'none';
+                
+                document.body.appendChild(pequi);
+            }
+        }
+
+        // Inicia as animações quando a página carrega
+        window.addEventListener('load', () => {
+            createConfetti();
+            addFloatingPequis();
+        });
+
+        // Função para verificar a resposta da charada
+        function checkAnswer(button, isCorrect) {
+            const feedback = document.getElementById('feedback');
+            const cinemaInvite = document.getElementById('cinemaInvite');
+            const allButtons = document.querySelectorAll('.option-btn');
+            
+            // Desabilita todos os botões
+            allButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                button.classList.add('correct');
+                feedback.innerHTML = '🎉 Parabéns! Você acertou! 🎉';
+                feedback.style.color = '#4caf50';
+                
+                // Mostra o convite do cinema após um pequeno delay
+                setTimeout(() => {
+                    cinemaInvite.style.display = 'block';
+                    cinemaInvite.scrollIntoView({ behavior: 'smooth' });
+                    createConfetti();
+                }, 1500);
+            } else {
+                button.classList.add('wrong');
+                feedback.innerHTML = '❌ Ops! Tente novamente! 😅';
+                feedback.style.color = '#f44336';
+                
+                // Reabilita os botões após 2 segundos
+                setTimeout(() => {
+                    allButtons.forEach(btn => {
+                        btn.disabled = false;
+                        btn.style.pointerEvents = 'auto';
+                        btn.classList.remove('wrong');
+                    });
+                    feedback.innerHTML = '';
+                }, 2000);
+            }
+        }
+        
+        // Função para aceitar o convite
+        function acceptInvite() {
+            const acceptBtn = document.querySelector('.accept-btn');
+            acceptBtn.innerHTML = '🎬 Convite Aceito! 🎉';
+            acceptBtn.style.background = 'linear-gradient(45deg, #4caf50, #45a049)';
+            acceptBtn.disabled = true;
+            
+            // Cria uma chuva de confetes
+            createConfetti();
+            
+            // Mostra mensagem de sucesso
+            setTimeout(() => {
+                alert('🎬 Perfeito! Vamos marcar um dia especial para assistir um filme no Cinemark Uberlândia! 🍿✨');
+            }, 1000);
+        }
+        
+        // Função para "talvez depois"
+        function maybeLater() {
+            const maybeBtn = document.querySelector('.maybe-btn');
+            maybeBtn.innerHTML = '🤔 Ok, vamos conversar depois!';
+            maybeBtn.style.background = 'rgba(255, 255, 255, 0.3)';
+            maybeBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('😊 Sem problemas! Quando quiser assistir um filme, é só me chamar! 🎬');
+            }, 500);
+        }
+
+        // Adiciona efeito de clique no botão voltar
+        const backButton = document.querySelector('.back-button');
+        backButton.addEventListener('click', function(e) {
+            // Cria mais confetes ao clicar
+            createConfetti();
+        });
+    </script>
+</body>
+</html>
